@@ -15,9 +15,13 @@ public class PutCommand extends Command {
 
 	public String execute(Cache<String, String> cache) {
 		try {
-			
 			cache.put(key, value);
-			return "putting value \"" + value + "\" under key \"" + key + "\"\nSTORED";	
+			StringBuffer sb = new StringBuffer("STORED value \"");
+			sb.append(value);
+			sb.append("\" under key \"");
+			sb.append(key);
+			sb.append("\"");
+			return sb.toString();	
 		} catch (Exception e) {
 			return "ERROR: " + e.getMessage();
 		}
